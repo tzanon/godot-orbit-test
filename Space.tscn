@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CelestialObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Materials/sun_mat2.tres" type="Material" id=2]
+
+[node name="Space" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15 )
+fov = 90.0
+
+[node name="CelestialObject" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
+other_path = "/root/Space/CelestialObject2"
+
+[node name="CelestialObject2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0 )
+colour = ExtResource( 2 )
+other_path = "/root/Space/CelestialObject"
+
